@@ -8,7 +8,7 @@ MEMORY_PATH = "memory.json"
 def ensure_memory_file():
     if not os.path.exists(MEMORY_PATH):
         with open(MEMORY_PATH, "w", encoding="utf-8") as f:
-            json.dumps({"notes": []}, f, ensure_ascii=False, indent=2)
+            json.dump({"notes": []}, f, ensure_ascii=False, indent=2)
 
 def load_long_memory() -> List[MemoryNote]:
     ensure_memory_file()
@@ -31,7 +31,7 @@ def append_note(text: str, tags=None) -> MemoryNote:
 
 def keyword_search_notes(query: str, top_k=3):
     notes = load_long_memory()
-    q = [tok.lower for tok in query.split()]
+    q = [tok.lower() for tok in query.split()]
     scored = []
     for n in notes:
         text_lower = n.text.lower()
