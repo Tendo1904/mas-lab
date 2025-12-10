@@ -1,4 +1,4 @@
-from state_types import GraphState
+from src.state_types import GraphState
 s = GraphState(query="Напиши функцию на Python для вставки docstring-а")
 print(s.model_dump_json(indent=2))
 

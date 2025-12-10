@@ -24,7 +24,6 @@ class Classification(BaseModel):
 class Plan(BaseModel):
     steps: List[str] = Field(default_factory=list)
     tools: List[str] = Field(default_factory=list)
-    context_notes: List[MemoryNote] = Field(default_factory=str)
 
 class PartialAnswers(BaseModel):
     rag_context: Optional[str] = None
